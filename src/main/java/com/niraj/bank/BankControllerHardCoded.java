@@ -44,4 +44,33 @@ public class BankControllerHardCoded implements BankControllerInterface{
     public ArrayList<Account> viewAllAccounts(){
         return ac;
     }
+
+    @Override
+    public int withdraw(int accNo, int balance) {
+        Account a = findAccount(accNo);
+        if(a != null){
+            if(a.getAmount()< balance)
+                return -1;
+            a.setAmount(a.getAmount()-balance);
+            return 1;
+        }
+        else{
+            return 0;
+        }
+    }
+
+    @Override
+    public int deleteAccount(int accNo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int fundTransfer(int accNoTarget, int accNoSource, int amount) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ArrayList<Object[]> viewAllAccountsinObj() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
